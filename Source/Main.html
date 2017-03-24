@@ -1,0 +1,82 @@
+<!doctype html>
+<html ng-app="Mash">
+
+<head >
+ <title>Mashup App!</title>
+
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<h1 class="page-header"  style="font-family:Ubuntu;" align="center"> Mashup of API </h1>
+</head>
+<body background="wall.jpg" ng-controller="View1Ctrl">
+  <div class="wrapper">
+   <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-4 col-md-offset-4 panel panel-default">
+  <div ng-view >
+
+    <div   class="left">
+
+     <form class="form-group" align="center">
+     <p><b>Enter the text to be translate: </b><input type="text"  class="form-control input-lg" ng-model = "Text" id = "Text"  placeholder="enter text here">
+       <br/>
+        <button type= "submit" class="btn btn-primary" value ="Text" ng-click="translate()">Translate</button>
+      </p>
+    </form>
+   <p>Language in Italian:</p>
+      <div id="div_VenueList">
+      <ul>
+             <li ng-if="result" style="font-size: x-large; color: #5e5e5e; text-align: center; list-style: none; list-style-position:inside;">
+                <a  href="" ng-click="sentiment(result)" style="font-size: x-large; color: #5e5e5e; text-align: center;"><p ng-bind="result"></p></a>
+              </li>
+            </ul>
+          </div>
+
+
+      <div id="div_ReviewList" style="display:none;"  >
+
+
+        <p ng-model="ReviewWithSentiment">
+
+
+   <h4> Sentiment Analysis of the word:</h4>
+        <table class="table table-striped table-bordered table-hover">
+
+
+            <tr>
+        <td>
+     <b>sentiment:  </b>
+        </td>
+        <td>
+        {{ReviewWithSentiment.sentiment}}
+        </td>
+        </tr>
+        <tr>
+    <td>
+    <b>score:  </b>
+    </td>
+    <td>
+    {{ReviewWithSentiment.score}}
+    </td>
+    </tr>
+
+        </table>
+
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+    <script src="./scripts/angular.js"></script>
+        <script src="./controllers/Mashup.js"></script>
+
+
+</div>
+   </div>
+  </div>
+</body>
+</html>
